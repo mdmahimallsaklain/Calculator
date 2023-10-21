@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="important.css" />
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+    <div class="calculetor">
+      <h1>calculetor</h1>
+      <div class="containts">
+        <div class="main-input">
+          <input type="text" class="input" maxlength="10" />
+        </div>
+        <div class="all-btn">
+          <div class="call-row">
+            <input
+              type="button"
+              class="btn"
+              value="C"
+              onclick="clearallinput()"
+            />
+            <input type="button" class="btn" value="M" onclick="mahim()" />
+            <input
+              type="button"
+              class="btn"
+              value="%"
+              onclick="numberinsert('%')"
+            />
+            <input
+              type="button"
+              class="btn oparetor"
+              value="/"
+              onclick="numberinsert('/')"
+              ondblclick="dblclick()"
+            />
+          </div>
+          <div class="call-row row2">
+            <input
+              type="button"
+              class="btn"
+              value="7"
+              onclick="numberinsert(7)"
+            />
+            <input
+              type="button"
+              class="btn"
+              value="8"
+              onclick="numberinsert(8)"
+            />
+            <input
+              type="button"
+              class="btn"
+              value="9"
+              onclick="numberinsert(9)"
+            />
+            <input
+              type="button"
+              class="btn oparetor"
+              value="X"
+              onclick="numberinsert('*')"
+              ondblclick="dblclick()"
+            />
+          </div>
+          <div class="call-row row3">
+            <input
+              type="button"
+              class="btn"
+              value="4"
+              onclick="numberinsert(4)"
+            />
+            <input
+              type="button"
+              class="btn"
+              value="5"
+              onclick="numberinsert(5)"
+            />
+            <input
+              type="button"
+              class="btn"
+              value="6"
+              onclick="numberinsert(6)"
+            />
+            <input
+              type="button"
+              class="btn oparetor"
+              value="-"
+              onclick="numberinsert('-')"
+              ondblclick="dblclick()"
+            />
+          </div>
+          <div class="call-row row4">
+            <input
+              type="button"
+              class="btn"
+              value="1"
+              onclick="numberinsert(1)"
+            />
+            <input
+              type="button"
+              class="btn"
+              value="2"
+              onclick="numberinsert(2)"
+            />
+            <input
+              type="button"
+              class="btn"
+              value="3"
+              onclick="numberinsert(3)"
+            />
+            <input
+              type="button"
+              class="btn oparetor"
+              value="+"
+              onclick="numberinsert('+')"
+              ondblclick="dblclick()"
+            />
+          </div>
+          <div class="call-row row5">
+            <input
+              type="button"
+              class="btn"
+              value="0"
+              onclick="numberinsert(0)"
+            />
+            <input
+              type="button"
+              class="btn"
+              value="."
+              onclick="numberinsert('.')"
+            />
+            <input
+              type="button"
+              class="btn del"
+              value="DEL"
+              onclick="deletebtn()"
+            />
+            <input
+              type="button"
+              class="btn ecual"
+              value="="
+              onclick="mainbtn()"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
