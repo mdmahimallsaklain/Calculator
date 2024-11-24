@@ -32,6 +32,7 @@ body {
   align-items: center;
 }
 body main {
+  position: relative;
   margin-left: 2rem;
   background-color: rgb(23, 23, 28);
   width: 403px;
@@ -91,21 +92,12 @@ body main div#insertButtons button.lockBtn {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 300ms;
 }
-body main div#creator {
+body main a#info {
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  background: rgb(23, 23, 28);
-  padding: 0.4rem 1.5rem;
+  top: 0.5rem;
+  right: 0.5rem;
   font-size: large;
-  border-radius: 0.5rem;
-}
-body main div#creator a {
-  color: rgb(75, 94, 252);
-  text-decoration: underline;
-}
-body main div#creator a:hover {
-  color: rgba(75, 93, 252, 0.653);
+  transition: all 500ms;
 }
 body main.darkMode {
   background-color: rgb(23, 23, 28);
@@ -152,6 +144,12 @@ body main.darkMode div#insertButtons button.lockBtn {
 body main.darkMode div#insertButtons button.lockBtn:hover {
   background: rgba(78, 80, 95, 0.762);
 }
+body main.darkMode a#info {
+  color: white;
+}
+body main.darkMode a#info:hover {
+  color: rgb(75, 94, 252);
+}
 body main.lightMode {
   background-color: white;
 }
@@ -188,4 +186,10 @@ body main.lightMode div#insertButtons button.lockBtn {
 }
 body main.lightMode div#insertButtons button.lockBtn:hover {
   background: rgb(176, 176, 180);
+}
+body main.lightMode a#info {
+  color: black;
+}
+body main.lightMode a#info:hover {
+  color: rgb(75, 94, 252);
 }

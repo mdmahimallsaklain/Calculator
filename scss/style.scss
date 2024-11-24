@@ -38,6 +38,7 @@ body {
   // align-items: start;
 
   main {
+    position: relative;
     margin-left: 2rem;
     background-color: rgb(23 23 28);
     // width: 30%;
@@ -113,24 +114,12 @@ body {
         transition: all 300ms;
       }
     }
-
-    div#creator {
+    a#info {
       position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      background: rgb(23 23 28);
-      padding: 0.4rem 1.5rem;
+      top: 0.5rem;
+      right: 0.5rem;
       font-size: large;
-      border-radius: 0.5rem;
-
-      a{
-        color: rgb(75 94 252);
-        text-decoration: underline;
-
-        &:hover{
-          color: rgba(75, 93, 252, 0.653);
-        }
-      }
+      transition: all 500ms;
     }
   }
   main.darkMode {
@@ -193,6 +182,12 @@ body {
         }
       }
     }
+    a#info {
+      color: white;
+      &:hover {
+        color: rgb(75 94 252);
+      }
+    }
   }
   main.lightMode {
     background-color: white;
@@ -240,6 +235,12 @@ body {
       }
       button.lockBtn {
         @include spacialWAnd_lockBtn();
+      }
+    }
+    a#info {
+      color: black;
+      &:hover {
+        color: rgb(75 94 252);
       }
     }
   }
