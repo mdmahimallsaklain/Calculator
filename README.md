@@ -1,8 +1,12 @@
 # Calculator Project
 
-A fully functional calculator built using modern web technologies like HTML, CSS, SCSS, JavaScript, and TypeScript.## About
+A fully functional calculator built using modern web technologies like HTML, CSS, SCSS, JavaScript, and TypeScript.
 
-This project is a simple yet powerful calculator that performs basic arithmetic operations such as addition, subtraction, multiplication, and division. It is designed with a clean user interface and built with a responsive layout to ensure it works seamlessly on different devices.## Features
+## About
+
+This project is a simple yet powerful calculator that performs basic arithmetic operations such as addition, subtraction, multiplication, and division. It is designed with a clean user interface and built with a responsive layout to ensure it works seamlessly on different devices.
+
+## Features
 
 - Perform basic arithmetic operations: addition, subtraction, multiplication, and division.
 - Interactive and responsive user interface.
@@ -25,9 +29,13 @@ This project is a simple yet powerful calculator that performs basic arithmetic 
 - **JavaScript (JS)**: Handles dynamic functionality.
 - **TypeScript (TS)**: Ensures type safety and better code quality.## Contributing
 
-Contributions are welcome! Feel free to fork the repository and submit a pull request with your improvements.## License
+Contributions are welcome! Feel free to fork the repository and submit a pull request with your improvements.
 
-This project is licensed under the [MIT License](LICENSE).## Contact
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
 
 If you have any questions or feedback, feel free to reach out:
 
