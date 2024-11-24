@@ -2,154 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="important.css" />
-    <script src="jquery.js"></script>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   </head>
   <body>
-    <div class="calculetor">
-      <h1>calculetor</h1>
-      <div class="containts">
-        <div class="main-input">
-          <input type="text" class="input" maxlength="10" />
-        </div>
-        <div class="all-btn">
-          <div class="call-row">
-            <input
-              type="button"
-              class="btn"
-              value="C"
-              onclick="clearallinput()"
-            />
-            <input type="button" class="btn" value="M" onclick="mahim()" />
-            <input
-              type="button"
-              class="btn"
-              value="%"
-              onclick="numberinsert('%')"
-            />
-            <input
-              type="button"
-              class="btn oparetor"
-              value="/"
-              onclick="numberinsert('/')"
-              ondblclick="dblclick()"
-            />
-          </div>
-          <div class="call-row row2">
-            <input
-              type="button"
-              class="btn"
-              value="7"
-              onclick="numberinsert(7)"
-            />
-            <input
-              type="button"
-              class="btn"
-              value="8"
-              onclick="numberinsert(8)"
-            />
-            <input
-              type="button"
-              class="btn"
-              value="9"
-              onclick="numberinsert(9)"
-            />
-            <input
-              type="button"
-              class="btn oparetor"
-              value="X"
-              onclick="numberinsert('*')"
-              ondblclick="dblclick()"
-            />
-          </div>
-          <div class="call-row row3">
-            <input
-              type="button"
-              class="btn"
-              value="4"
-              onclick="numberinsert(4)"
-            />
-            <input
-              type="button"
-              class="btn"
-              value="5"
-              onclick="numberinsert(5)"
-            />
-            <input
-              type="button"
-              class="btn"
-              value="6"
-              onclick="numberinsert(6)"
-            />
-            <input
-              type="button"
-              class="btn oparetor"
-              value="-"
-              onclick="numberinsert('-')"
-              ondblclick="dblclick()"
-            />
-          </div>
-          <div class="call-row row4">
-            <input
-              type="button"
-              class="btn"
-              value="1"
-              onclick="numberinsert(1)"
-            />
-            <input
-              type="button"
-              class="btn"
-              value="2"
-              onclick="numberinsert(2)"
-            />
-            <input
-              type="button"
-              class="btn"
-              value="3"
-              onclick="numberinsert(3)"
-            />
-            <input
-              type="button"
-              class="btn oparetor"
-              value="+"
-              onclick="numberinsert('+')"
-              ondblclick="dblclick()"
-            />
-          </div>
-          <div class="call-row row5">
-            <input
-              type="button"
-              class="btn"
-              value="0"
-              onclick="numberinsert(0)"
-            />
-            <input
-              type="button"
-              class="btn"
-              value="."
-              onclick="numberinsert('.')"
-            />
-            <input
-              type="button"
-              class="btn del"
-              value="DEL"
-              onclick="deletebtn()"
-            />
-            <input
-              type="button"
-              class="btn ecual"
-              value="="
-              onclick="mainbtn()"
-            />
-          </div>
+    <main class="darkMode"> 
+      <div id="mode">
+        <button id="modeCng_btn"></button>
+      </div>
+      <div id="view">
+        <input id="result" type="text"  autocomplete="off" disabled="true"/>
+        <input id="insert" type="text"  autocomplete="off" disabled="true"/>
+      </div>
+      <div id="insertButtons">
+          <button onclick="insert_data('c')" type="button" class="insertButton spacialW">C</button>
+          <button type="button" id="lockBtn" class="lockBtn"></button>
+          <button onclick="insert_data('%')" type="button" class="insertButton spacialW"><i class="fas fa-percent"></i></button>
+          <button onclick="insert_data('/')" type="button" class="insertButton spacialB"><i class="fas fa-divide"></i></button>
+          <button onclick="insert_data('7')" type="button" class="insertButton">7</button>
+          <button onclick="insert_data('8')" type="button" class="insertButton">8</button>
+          <button onclick="insert_data('9')" type="button" class="insertButton">9</button>
+          <button onclick="insert_data('*')" type="button" class="insertButton spacialB"><i class="fas fa-times"></i></button>
+          <button onclick="insert_data('6')" type="button" class="insertButton">6</button>
+          <button onclick="insert_data('5')" type="button" class="insertButton">5</button>
+          <button onclick="insert_data('4')" type="button" class="insertButton">4</button>
+          <button onclick="insert_data('-')" type="button" class="insertButton spacialB"><i class="fas fa-minus"></i></button>
+          <button onclick="insert_data('3')" type="button" class="insertButton">3</button>
+          <button onclick="insert_data('2')" type="button" class="insertButton">2</button>
+          <button onclick="insert_data('1')" type="button" class="insertButton">1</button>
+          <button onclick="insert_data('+')" type="button" class="insertButton spacialB"><i class="fas fa-plus"></i></button>
+          <button onclick="insert_data('.')" type="button" class="insertButton">.</button>
+          <button onclick="insert_data('0')" type="button" class="insertButton">0</button>
+          <button onclick="insert_data('backspace')" type="button" class="insertButton"><i class="fas fa-backspace"></i></button>
+          <button onclick="insert_data('equal')" type="button" class="insertButton spacialB"><i class="fas fa-equals"></i></button>
         </div>
       </div>
-    </div>
+      <div id="creator">
+        <p>Created by <a href="https://gravatar.com/mdmahimallsaklain" target="_blank">MD Mahim All Saklain</a></p>
+      </div>
+    </main>
 
-    <script src="index.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

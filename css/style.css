@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button,
+a {
+  outline: none;
+  border: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background: linear-gradient(45deg, rgba(255, 166, 0, 0.81), blue, rgba(255, 166, 0, 0.81));
+  color: white;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main {
+  margin-left: 2rem;
+  background-color: rgb(23, 23, 28);
+  width: 403px;
+  height: 40rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+body main div#mode {
+  height: 20%;
+  width: 100%;
+  text-align: center;
+}
+body main div#mode button#modeCng_btn {
+  font-size: x-large;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  transition: all 500ms;
+}
+body main div#view {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body main div#view input#result {
+  text-align: right;
+  font-size: xx-large;
+  background: transparent;
+}
+body main div#view input#insert {
+  text-align: right;
+  font-size: xx-large;
+  background: transparent;
+}
+body main div#insertButtons {
+  width: 100%;
+  height: 60%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 1rem;
+}
+body main div#insertButtons button.insertButton {
+  border-radius: 0.5rem;
+  font-size: x-large;
+  font-weight: 600;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: all 300ms;
+}
+body main div#insertButtons button.insertButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+body main div#insertButtons button.lockBtn {
+  border-radius: 0.5rem;
+  font-size: x-large;
+  font-weight: 600;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: all 300ms;
+}
+body main div#creator {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgb(23, 23, 28);
+  padding: 0.4rem 1.5rem;
+  font-size: large;
+  border-radius: 0.5rem;
+}
+body main div#creator a {
+  color: rgb(75, 94, 252);
+  text-decoration: underline;
+}
+body main div#creator a:hover {
+  color: rgba(75, 93, 252, 0.653);
+}
+body main.darkMode {
+  background-color: rgb(23, 23, 28);
+}
+body main.darkMode div#mode button#modeCng_btn {
+  background: rgb(78, 80, 95);
+  color: white;
+}
+body main.darkMode div#mode button#modeCng_btn:hover {
+  background: rgb(46, 47, 56);
+}
+body main.darkMode div#view input#result {
+  color: white;
+}
+body main.darkMode div#view input#insert {
+  color: white;
+}
+body main.darkMode div#insertButtons button.insertButton {
+  color: white;
+  background: rgb(46, 47, 56);
+}
+body main.darkMode div#insertButtons button.insertButton:hover {
+  background: rgb(78, 80, 95);
+}
+body main.darkMode div#insertButtons button.spacialW {
+  background: rgb(78, 80, 95);
+}
+body main.darkMode div#insertButtons button.spacialW:hover {
+  background: rgb(46, 47, 56);
+}
+body main.darkMode div#insertButtons button.spacialB {
+  background: rgb(75, 94, 252) !important;
+}
+body main.darkMode div#insertButtons button.spacialB:hover {
+  background: rgba(75, 93, 252, 0.653) !important;
+}
+body main.darkMode div#insertButtons button.locked {
+  background: rgb(75, 94, 252) !important;
+}
+body main.darkMode div#insertButtons button.lockBtn {
+  background: rgb(78, 80, 95);
+  color: white;
+}
+body main.darkMode div#insertButtons button.lockBtn:hover {
+  background: rgba(78, 80, 95, 0.762);
+}
+body main.lightMode {
+  background-color: white;
+}
+body main.lightMode div#view input#result {
+  color: rgb(78, 80, 95);
+}
+body main.lightMode div#view input#insert {
+  color: black;
+}
+body main.lightMode div#insertButtons button.insertButton {
+  color: black;
+  background: rgb(241, 242, 243);
+}
+body main.lightMode div#insertButtons button.insertButton:hover {
+  background: rgb(177, 178, 180);
+}
+body main.lightMode div#insertButtons button.spacialW {
+  background: rgb(210, 211, 218);
+}
+body main.lightMode div#insertButtons button.spacialW:hover {
+  background: rgb(176, 176, 180);
+}
+body main.lightMode div#insertButtons button.spacialB {
+  background: rgb(75, 94, 252) !important;
+}
+body main.lightMode div#insertButtons button.spacialB:hover {
+  background: rgba(75, 93, 252, 0.653) !important;
+}
+body main.lightMode div#insertButtons button.locked {
+  background: rgb(75, 94, 252) !important;
+}
+body main.lightMode div#insertButtons button.lockBtn {
+  background: rgb(210, 211, 218);
+}
+body main.lightMode div#insertButtons button.lockBtn:hover {
+  background: rgb(176, 176, 180);
+}

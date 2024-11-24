@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button,
+a {
+  outline: none;
+  border: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 166, 0, 0.81),
+    blue,
+    rgba(255, 166, 0, 0.81)
+  );
+  color: white;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // align-items: start;
+
+  main {
+    margin-left: 2rem;
+    background-color: rgb(23 23 28);
+    // width: 30%;
+    width: 403px;
+    height: 40rem;
+    padding: 1rem;
+    border-radius: 0.6rem;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-items: start;
+
+    div#mode {
+      height: 20%;
+      width: 100%;
+      text-align: center;
+
+      button#modeCng_btn {
+        font-size: x-large;
+        padding: 0.3rem 1rem;
+        // padding: 0.1rem 0.5rem;
+        border-radius: 1rem;
+        transition: all 500ms;
+      }
+    }
+    div#view {
+      height: 20%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      @mixin ViewInputs {
+        text-align: right;
+        font-size: xx-large;
+        background: transparent;
+      }
+
+      input#result {
+        @include ViewInputs();
+      }
+      input#insert {
+        @include ViewInputs();
+      }
+    }
+    div#insertButtons {
+      width: 100%;
+      height: 60%;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 1rem;
+
+      @mixin InsertButton {
+        border-radius: 0.5rem;
+        font-size: x-large;
+        font-weight: 600;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        transition: all 300ms;
+      }
+
+      button.insertButton {
+        @include InsertButton();
+
+        &:disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
+        }
+      }
+      button.lockBtn {
+        border-radius: 0.5rem;
+        font-size: x-large;
+        font-weight: 600;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        transition: all 300ms;
+      }
+    }
+
+    div#creator {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      background: rgb(23 23 28);
+      padding: 0.4rem 1.5rem;
+      font-size: large;
+      border-radius: 0.5rem;
+
+      a{
+        color: rgb(75 94 252);
+        text-decoration: underline;
+
+        &:hover{
+          color: rgba(75, 93, 252, 0.653);
+        }
+      }
+    }
+  }
+  main.darkMode {
+    background-color: rgb(23 23 28);
+
+    div#mode {
+      button#modeCng_btn {
+        background: rgb(78 80 95);
+        color: white;
+
+        &:hover {
+          background: rgb(46 47 56);
+        }
+      }
+    }
+    div#view {
+      input#result {
+        color: white;
+      }
+      input#insert {
+        color: white;
+      }
+    }
+    div#insertButtons {
+      @mixin InsertButton {
+        color: white;
+      }
+
+      button.insertButton {
+        @include InsertButton();
+        background: rgb(46 47 56);
+
+        &:hover {
+          background: rgb(78 80 95);
+        }
+      }
+      button.spacialW {
+        background: rgb(78 80 95);
+
+        &:hover {
+          background: rgb(46 47 56);
+        }
+      }
+      button.spacialB {
+        background: rgb(75 94 252) !important;
+
+        &:hover {
+          background: rgba(75, 93, 252, 0.653) !important;
+        }
+      }
+      button.locked {
+        background: rgb(75 94 252) !important;
+      }
+      button.lockBtn {
+        background: rgb(78 80 95);
+        color: white;
+
+        &:hover {
+          background: rgba(78, 80, 95, 0.762);
+        }
+      }
+    }
+  }
+  main.lightMode {
+    background-color: white;
+
+    div#view {
+      input#result {
+        color: rgb(78 80 95);
+      }
+      input#insert {
+        color: black;
+      }
+    }
+    div#insertButtons {
+      @mixin InsertButton {
+        color: black;
+      }
+
+      button.insertButton {
+        @include InsertButton();
+        background: rgb(241 242 243);
+
+        &:hover {
+          background: rgb(177, 178, 180);
+        }
+      }
+      @mixin spacialWAnd_lockBtn {
+        background: rgb(210 211 218);
+
+        &:hover {
+          background: rgb(176, 176, 180);
+        }
+      }
+      button.spacialW {
+        @include spacialWAnd_lockBtn();
+      }
+      button.spacialB {
+        background: rgb(75 94 252) !important;
+
+        &:hover {
+          background: rgba(75, 93, 252, 0.653) !important;
+        }
+      }
+      button.locked {
+        background: rgb(75 94 252) !important;
+      }
+      button.lockBtn {
+        @include spacialWAnd_lockBtn();
+      }
+    }
+  }
+}
