@@ -16,6 +16,12 @@ This project is a simple yet powerful calculator that performs basic arithmetic 
 
 [Click here to view live demo](https://to-do-list-with-html-css-and-vanilla-js.vercel.app/)
 
+Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/mdmahimallsaklain/to-do-list-with-html-css-and-vanilla-js.git
+
+   ```
+
 ## Usage
 
 1. Open the calculator in a web browser.
