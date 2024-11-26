@@ -77,9 +77,11 @@ body {
       }
 
       input#result {
+        cursor: text;
         @include ViewInputs();
       }
       input#insert {
+        cursor: text;
         @include ViewInputs();
       }
     }
@@ -89,6 +91,7 @@ body {
       display: grid;
       grid-template-columns: auto auto auto auto;
       gap: 1rem;
+      user-select: none;
 
       @mixin InsertButton {
         border-radius: 0.5rem;
@@ -114,12 +117,13 @@ body {
         transition: all 300ms;
       }
     }
-    a#info {
+    #info {
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
       font-size: large;
       transition: all 500ms;
+      background: transparent;
     }
   }
   main.darkMode {
@@ -182,7 +186,7 @@ body {
         }
       }
     }
-    a#info {
+    #info {
       color: white;
       &:hover {
         color: rgb(75 94 252);
@@ -237,7 +241,7 @@ body {
         @include spacialWAnd_lockBtn();
       }
     }
-    a#info {
+    #info {
       color: black;
       &:hover {
         color: rgb(75 94 252);
@@ -251,7 +255,7 @@ body {
     background: white;
     display: inline;
 
-    main{
+    main {
       width: 100%;
       height: 100vh;
       margin: 0;

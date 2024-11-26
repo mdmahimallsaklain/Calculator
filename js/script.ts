@@ -1,159 +1,173 @@
-// ^ Graphic
+// ^ Theme and Lock Control
 
-// ~ initial States
+// ~ Initial States
+let isLightMode: boolean = false;
+let isLocked: boolean = false;
+// ~ Initial States End
 
-let lightMode: boolean = false;
-let locked: boolean = false;
-
-// ~ initial States end
-
-const modeCng_btn = document.querySelector(
+// ~ Element Selectors
+const themeToggleButton = document.querySelector(
   "button#modeCng_btn"
 ) as HTMLButtonElement;
-const main_elem = document.querySelector("main") as HTMLElement;
+const mainElement = document.querySelector("main") as HTMLElement;
 
-const lockButton = document.querySelector(
+const lockToggleButton = document.querySelector(
   "button#lockBtn"
 ) as HTMLButtonElement;
 
-const insertButtons = document.querySelectorAll(
+const actionButtons = document.querySelectorAll(
   "button.insertButton"
 ) as NodeListOf<Element>;
+// ~ Element Selectors End
 
-// * saveData in localStorage
-const saveData = (name: string, value: string): void => {
-  localStorage.setItem(name, value);
-};
+// * Save data to localStorage
+const saveToLocalStorage = (key: string, value: string): void =>
+  localStorage.setItem(key, value);
 
-// * mode changed handler
-const ModeChanged = (): void => {
-  if (lightMode == false) {
-    saveData("lightMode", String(lightMode));
-    main_elem.classList.add("darkMode");
-    main_elem.classList.remove("lightMode");
-    modeCng_btn.innerHTML = '<i class="fas fa-sun"></i> <span>Light</span>';
-  } else if (lightMode == true) {
-    saveData("lightMode", String(lightMode));
-    main_elem.classList.remove("darkMode");
-    main_elem.classList.add("lightMode");
-    modeCng_btn.innerHTML = '<i class="fas fa-moon"></i> <span>Dark</span>';
-  }
-};
-
-// * lock mode changed handler
-const lockModeChanged = (): void => {
-  if (locked == false) {
-    saveData("locked", String(locked));
-    lockButton.classList.remove("locked");
-    lockButton.innerHTML = '<i class="fas fa-lock"></i>';
-
-    for (let i = 0; i < insertButtons.length; i++) {
-      const element = insertButtons[i] as HTMLButtonElement;
-      element.disabled = false;
-    }
-  } else if (locked == true) {
-    saveData("locked", String(locked));
-    lockButton.classList.add("locked");
-    lockButton.innerHTML = '<i class="fas fa-unlock">';
-
-    for (let i = 0; i < insertButtons.length; i++) {
-      const element = insertButtons[i] as HTMLButtonElement;
-      element.disabled = true;
-    }
-  }
-};
-
-// * Get Data from localStorage
-const getData = (): void => {
-  const isLightMode = localStorage.getItem("lightMode");
-  if (isLightMode !== null && isLightMode == "true") {
-    lightMode = true;
-    ModeChanged();
+// * Handle theme changes
+const handleThemeChange = (): void => {
+  if (isLightMode) {
+    saveToLocalStorage("lightMode", String(isLightMode));
+    mainElement.classList.add("lightMode");
+    mainElement.classList.remove("darkMode");
+    themeToggleButton.innerHTML =
+      '<i class="fas fa-moon"></i> <span>Dark</span>';
   } else {
-    saveData("lightMode", String(lightMode));
-    ModeChanged();
-  }
-  const isLockedMode = localStorage.getItem("locked");
-  if (isLockedMode !== null && isLockedMode == "true") {
-    locked = true;
-    lockModeChanged();
-  } else {
-    saveData("locked", String(locked));
-    lockModeChanged();
+    saveToLocalStorage("lightMode", String(isLightMode));
+    mainElement.classList.add("darkMode");
+    mainElement.classList.remove("lightMode");
+    themeToggleButton.innerHTML =
+      '<i class="fas fa-sun"></i> <span>Light</span>';
   }
 };
 
-getData();
-
-// * lock button event Handler
-lockButton.addEventListener("click", () => {
-  if (locked == false) {
-    locked = true;
-    saveData("locked", String(locked));
-    lockModeChanged();
-  } else if (locked == true) {
-    locked = false;
-    saveData("locked", String(locked));
-    lockModeChanged();
+// * Handle lock state changes
+const handleLockStateChange = (): void => {
+  if (isLocked) {
+    saveToLocalStorage("locked", String(isLocked));
+    lockToggleButton.classList.add("locked");
+    lockToggleButton.innerHTML = '<i class="fas fa-unlock"></i>';
+    actionButtons.forEach((button) => {
+      (button as HTMLButtonElement).disabled = true;
+    });
+  } else {
+    saveToLocalStorage("locked", String(isLocked));
+    lockToggleButton.classList.remove("locked");
+    lockToggleButton.innerHTML = '<i class="fas fa-lock"></i>';
+    actionButtons.forEach((button) => {
+      (button as HTMLButtonElement).disabled = false;
+    });
   }
-});
+};
 
-// * mode Change button event Handler
-modeCng_btn.addEventListener("click", () => {
-  if (lightMode == false) {
-    lightMode = true;
-    saveData("lightMode", String(lightMode));
-    main_elem.classList.remove("darkMode");
-    main_elem.classList.add("lightMode");
-    modeCng_btn.innerHTML = '<i class="fas fa-moon"></i> <span>Dark</span>';
-  } else if (lightMode == true) {
-    lightMode = false;
-    saveData("lightMode", String(lightMode));
-    main_elem.classList.add("darkMode");
-    main_elem.classList.remove("lightMode");
-    modeCng_btn.innerHTML = '<i class="fas fa-sun"></i> <span>Light</span>';
+// * Retrieve data from localStorage and initialize
+const initializeState = (): void => {
+  const storedLightMode = localStorage.getItem("lightMode");
+  isLightMode = storedLightMode === "true";
+  handleThemeChange();
+
+  const storedLockState = localStorage.getItem("locked");
+  isLocked = storedLockState === "true";
+  handleLockStateChange();
+};
+
+// * Toggle lock state
+const toggleLockState = (): void => {
+  isLocked = !isLocked;
+  handleLockStateChange();
+};
+
+// * Toggle theme
+const toggleTheme = (): void => {
+  isLightMode = !isLightMode;
+  handleThemeChange();
+};
+
+// * Show creator information
+const showCreatorInfo = (): void => {
+  const userConfirmed = window.confirm(
+    "Do you want to know about the creator of this application?"
+  );
+  if (userConfirmed) {
+    window.open("https://gravatar.com/mdmahimallsaklain", "_blank");
   }
-});
+};
 
-// ^ Graphic end
+// ~ Event Listeners
+lockToggleButton.addEventListener("click", toggleLockState);
+themeToggleButton.addEventListener("click", toggleTheme);
+// ~ End Event Listeners
+
+initializeState();
 
 // ^ Calculator
 
-// ~ States
+// ~ Calculator States
+let currentKey: string = "";
+// ~ End Calculator States
 
-let key: string = "";
+// ~ Calculator Element Selectors
+const inputField = document.querySelector("input#insert") as HTMLInputElement;
+const resultField = document.querySelector("input#result") as HTMLInputElement;
+// ~ End Calculator Element Selectors
 
-// ~ States end
-
-// ~ Initial dom Element select
-
-const insert_dom = document.querySelector("input#insert") as HTMLInputElement;
-const result_dom = document.querySelector("input#result") as HTMLInputElement;
-
-// ~ Initial dom Element select end
-
-// * here is the all kay which are going to use in this app
-// * c = clear;
-// * % = percent 
-// * / = divided 
-// * * = multi 
-// * - = minus
-// * + = plus 
-// * = = equals 
-// * backspace = backspace 
-
-const modeKey = (): void => {
-  switch (key) {
-    case "c":
+// * Handle calculator input
+const handleCalculatorInput = (): void => {
+  const allowedKeys = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "+",
+    "-",
+    "*",
+    "/",
+  ];
+  switch (currentKey) {
+    case "c": // Clear input and result fields
+      inputField.value = "";
+      resultField.value = "";
       break;
-
-    default:
+    case "l": // Toggle lock state
+      toggleLockState();
+      break;
+    case "i": // Show creator information
+      showCreatorInfo();
+      break;
+    case "=": // Calculate result
+    case "enter":
+      try {
+        resultField.value = eval(inputField.value); // Note: Avoid `eval` in production!
+      } catch {
+        resultField.value = "Error";
+      }
+      break;
+    case "backspace": // Remove the last character
+      inputField.value = inputField.value.slice(0, -1);
+      break;
+    default: // Append allowed key to input field
+      if (allowedKeys.includes(currentKey)) {
+        inputField.value += currentKey;
+      }
       break;
   }
 };
 
-const insert_data = (key: string): void => {
-  key = key;
+// * Insert key data
+const insertCalculatorKey = (key: string): void => {
+  currentKey = key.toLowerCase();
+  handleCalculatorInput();
 };
 
-// ^ Calculator end
+// * Handle keyboard input
+document.addEventListener("keydown", (event) => {
+  currentKey = event.key.toLowerCase();
+  handleCalculatorInput();
+});
+// ^ End Calculator
