@@ -19,7 +19,7 @@ This project is a simple yet powerful calculator that performs basic arithmetic 
 ## Clone the repository to your local machine
 
    ```bash
-   git clone https://github.com/mdmahimallsaklain/to-do-list-with-html-css-and-vanilla-js.git
+   git clone https://github.com/mdmahimallsaklain/Calculator.git
 
    ```
 
