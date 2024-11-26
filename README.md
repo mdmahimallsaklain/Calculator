@@ -48,5 +48,5 @@ This project is licensed under the [MIT License](LICENSE).
 If you have any questions or feedback, feel free to reach out:
 
 - **Author**: MD Mahim All Saklain
-- **GitHub**: [github-profile](https://github.com/mdmahimallsaklain)
+- **GitHub**: [Github-profile](https://github.com/mdmahimallsaklain)
 - **Gravatar**: [Gravatar-profile](https://gravatar.com/mdmahimallsaklain)

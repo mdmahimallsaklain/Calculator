@@ -18,13 +18,15 @@ const handleThemeChange = () => {
         saveToLocalStorage("lightMode", String(isLightMode));
         mainElement.classList.add("lightMode");
         mainElement.classList.remove("darkMode");
-        themeToggleButton.innerHTML = '<i class="fas fa-moon"></i> <span>Dark</span>';
+        themeToggleButton.innerHTML =
+            '<i class="fas fa-moon"></i> <span>Dark</span>';
     }
     else {
         saveToLocalStorage("lightMode", String(isLightMode));
         mainElement.classList.add("darkMode");
         mainElement.classList.remove("lightMode");
-        themeToggleButton.innerHTML = '<i class="fas fa-sun"></i> <span>Light</span>';
+        themeToggleButton.innerHTML =
+            '<i class="fas fa-sun"></i> <span>Light</span>';
     }
 };
 // * Handle lock state changes
@@ -87,7 +89,22 @@ const resultField = document.querySelector("input#result");
 // ~ End Calculator Element Selectors
 // * Handle calculator input
 const handleCalculatorInput = () => {
-    const allowedKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/"];
+    const allowedKeys = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "+",
+        "-",
+        "*",
+        "/",
+    ];
     switch (currentKey) {
         case "c": // Clear input and result fields
             inputField.value = "";
