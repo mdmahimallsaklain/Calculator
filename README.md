@@ -14,7 +14,7 @@ This project is a simple yet powerful calculator that performs basic arithmetic 
 - TypeScript ensures type safety and better code quality.
 ## Live Demo
 
-[Click here to view live demo](https://to-do-list-with-html-css-and-vanilla-js.vercel.app/)
+[Click here to view live demo](https://calculator-flame-seven.vercel.app/)
 
 ## Clone the repository to your local machine
 
